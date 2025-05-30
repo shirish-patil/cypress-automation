@@ -103,12 +103,14 @@ When('I click on {string}', (linkText) => {
 });
 
 When('I upload my CV file', () => {
-  cy.get('input[value="Update resume"]', { timeout: 60000 })
-    .should('exist')
-    .attachFile('ShirishPatil.pdf');
-  
-  // Wait for upload to complete with increased timeout
-  cy.wait(10000);
+  // Get the first PDF file from fixtures directory
+  cy.task('getPdfFileName').then((fileName) => {
+    cy.get('input[value="Update resume"]', { timeout: 60000 })
+      .should('exist')
+      .attachFile(fileName);
+    
+    cy.log(`Uploading CV file: ${fileName}`);
+  });
 });
 
 Then('I should see the upload confirmation', () => {

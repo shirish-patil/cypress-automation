@@ -2,13 +2,31 @@ const { defineConfig } = require('cypress')
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
 const preprocessor = require('@badeball/cypress-cucumber-preprocessor')
 const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild')
+const fs = require('fs')
+const path = require('path')
 
 async function setupNodeEvents(on, config) {
   await preprocessor.addCucumberPreprocessorPlugin(on, config)
+  on('task', {
+    getPdfFileName() {
+      const fixturesDir = path.join(__dirname, 'cypress', 'fixtures')
+      const files = fs.readdirSync(fixturesDir)
+      const pdfFile = files.find(file => file.toLowerCase().endsWith('.pdf'))
+      
+      if (!pdfFile) {
+        throw new Error('No PDF file found in fixtures directory')
+      }
+      
+      return pdfFile
+    }
+  })
   on(
     'file:preprocessor',
     createBundler({
       plugins: [createEsbuildPlugin.default(config)],
+      define: {
+        global: 'window',
+      },
     })
   )
   return config

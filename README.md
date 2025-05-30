@@ -45,7 +45,9 @@ naukri-automation/
 
 4. Add your CV file:
    - Place your CV file in `cypress/fixtures/` directory
-   - Name it `ShirishPatil.pdf` (or update the file name in the test if using a different name)
+   - The file must be in PDF format
+   - The test will automatically detect and use the PDF file
+   - Only one PDF file should be present in the fixtures directory
 
 ## Running Tests
 
@@ -75,6 +77,7 @@ The project includes the following test scenarios:
 - Popup handling is implemented for various scenarios
 - Tests use IST timezone for date verification
 - Network requests are logged for debugging purposes
+- CV file is automatically detected from fixtures directory
 
 ## Troubleshooting
 
@@ -92,6 +95,7 @@ The project includes the following test scenarios:
    - Verify the CV file exists in fixtures directory
    - Check file format (PDF)
    - Ensure file size is within limits
+   - Make sure only one PDF file is present in fixtures directory
 
 ## Contributing
 
