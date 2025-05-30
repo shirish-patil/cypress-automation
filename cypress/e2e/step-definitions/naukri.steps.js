@@ -114,8 +114,11 @@ When('I upload my CV file', () => {
 });
 
 Then('I should see the upload confirmation', () => {
-  cy.contains('ShirishPatil.pdf', { timeout: 60000 })
-    .should('be.visible');
+  cy.task('getPdfFileName').then((fileName) => {
+    cy.contains(fileName, { timeout: 60000 })
+      .should('be.visible');
+    cy.log(`Verified upload of file: ${fileName}`);
+  });
 });
 
 Then('the upload date should be today\'s date', () => {
