@@ -6,6 +6,7 @@ package-lock.json
 cypress/videos/
 cypress/screenshots/
 cypress/downloads/
+cypress/fixtures/
 
 # Environment variables
 cypress.env.json
@@ -24,9 +25,4 @@ Thumbs.db
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
-
-# Test files
-# Keep fixtures directory but ignore other test files
-cypress/fixtures/*
-!cypress/fixtures/ShirishPatil.pdf 
+yarn-error.log* 
