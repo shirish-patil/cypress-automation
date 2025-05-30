@@ -18,6 +18,8 @@
     "nodemailer": "^7.0.3"
   },
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "cypress": "^13.6.1",
     "cypress-file-upload": "^5.0.8"
   }
