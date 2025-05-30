@@ -27,4 +27,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Test files
-ShirishPatil.pdf 
+# Keep fixtures directory but ignore other test files
+cypress/fixtures/*
+!cypress/fixtures/ShirishPatil.pdf 
