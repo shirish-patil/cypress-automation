@@ -13,7 +13,7 @@ Feature: Naukri.com Profile Management
     And I handle any popup that appears
     When I click on my profile icon
     And I click on "View & Update Profile"
-    And I click on "Update Resume"
+    And I click on "Update resume"
     And I upload my CV file
     Then I should see the upload confirmation
     And the upload date should be today's date 
